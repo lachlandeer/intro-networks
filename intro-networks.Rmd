@@ -3,7 +3,7 @@ title: "A First Introduction to Networks with `R`"
 subtitle: "Social Media and Web Analytics @ TiSEM"
 author: "Lachlan Deer"
 date: "Last updated: `r format(Sys.time(), '%d %B, %Y')`"
-output: html_document
+output: rmdformats::readthedown
 ---
 
 ```{r setup, include=FALSE}
@@ -388,7 +388,7 @@ grph %>%
     theme_graph()
 ```
 
-## Customizing the Plot Layout
+## Customizing the Nodes and Links Shape and Color
 
 In the previous section we built a rather basic plot that visualized the friendship network.
 We will now explore how we can extend this graph by customizing parts of the plot.
