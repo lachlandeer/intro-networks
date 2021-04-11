@@ -3,7 +3,10 @@ title: "A First Introduction to Networks with `R`"
 subtitle: "Social Media and Web Analytics @ TiSEM"
 author: "Lachlan Deer"
 date: "Last updated: `r format(Sys.time(), '%d %B, %Y')`"
-output: rmdformats::readthedown
+output: 
+    pdf_document:
+        fig_width: 5 
+        fig_height: 3
 ---
 
 ```{r setup, include=FALSE}
@@ -507,7 +510,7 @@ grph %>%
     ggraph() +
     geom_node_point(aes(color = sex)) +
     geom_edge_link(alpha = 0.2) +
-    theme_graph()
+    theme_void()
 ```
 These red and blue-ish colors are the `ggplot` defaults. 
 You can change the color mappings the same way you would modify any `ggplot` color mapping (see [here](http://www.sthda.com/english/wiki/ggplot2-colors-how-to-change-colors-automatically-and-manually) for some examples)
@@ -519,7 +522,7 @@ grph %>%
     ggraph() +
     geom_node_point(aes(shape = sex), size = 5) +
     geom_edge_link(alpha = 0.2) +
-    theme_graph()
+    theme_void()
 ```
 
 And we could use multiple attributes at once: 
@@ -529,7 +532,7 @@ grph %>%
     ggraph() +
     geom_node_point(aes(shape = sex, color = age), size = 5) +
     geom_edge_link(alpha = 0.2) +
-    theme_graph()
+    theme_void()
 ```
 
 ### Edge Attributes
@@ -544,7 +547,7 @@ grph %>%
     ggraph() +
     geom_node_point(size = 5) +
     geom_edge_link(aes(width = friendship_strength), alpha = 0.2) +
-    theme_graph()
+    theme_void()
 ```
 
 This worked, but it might make sense to have *strong* ties have a thicker edge than weak ones.
@@ -556,7 +559,7 @@ grph %>%
     geom_node_point(size = 5) +
     geom_edge_link(aes(width = friendship_strength), alpha = 0.2) +
     scale_edge_width_discrete(range = c(2, 1)) +
-    theme_graph()
+    theme_void()
 ```
 
 ### Creating New Attributes?
@@ -580,7 +583,7 @@ grph %>%
     geom_node_point(aes(size = influence)) +
     geom_edge_link(alpha = 0.2) +
     scale_edge_width_discrete(range = c(2, 1)) +
-    theme_graph()
+    theme_void()
 ```
 
 ## A 'Final Plot'
@@ -595,7 +598,7 @@ grph %>%
         geom_node_text(aes(label = name), size = 5, repel = TRUE) +
         geom_edge_link(aes(width = friendship_strength), alpha = 0.2) +
         scale_edge_width_discrete(range = c(2, 1)) +
-    theme_graph() +
+    theme_void() +
     ggtitle('Friendship Connections', subtitle = "Simulated Network")
 ```
 
